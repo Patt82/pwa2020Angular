@@ -1,0 +1,23 @@
+<p>home works!</p>
+
+<div>
+    <h2>Print Title</h2>
+    {{title}}
+
+    <button [disabled]="modificado" (click)="cambiarTitle()">Cambiar Title</button>
+    <input type="text" [(ngModel)]="title">
+</div>
+<div>
+    <h2>Cambiar Nombre</h2>
+    <p>Hola {{nombrePersona}}</p>
+    <input type="text" [(ngModel)]="nombrePersona">
+
+</div>
+
+<div>
+    <h2>Adivinar</h2>
+    <button [disabled]="desactivar" (click)="adivinar()">Adivinar</button>
+    <input type="text" [(ngModel)]="numero">
+    <p>Te quedan {{intentos}} intentos</p>
+    <p>{{mensaje}}</p>
+</div>
