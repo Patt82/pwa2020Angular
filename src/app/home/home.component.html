@@ -19,5 +19,15 @@
     <button [disabled]="desactivar" (click)="adivinar()">Adivinar</button>
     <input type="text" [(ngModel)]="numero">
     <p>Te quedan {{intentos}} intentos</p>
-    <p>{{mensaje}}</p>
+    <div [class]="class_mensaje">
+        <p>{{mensaje}}</p>
+    </div>
+    <div [ngClass]="{gano:numero ==5, perdio:numero!=5}">
+        {{mensaje}}
+    </div>
+
+    <p *ngFor= "let producto of productos">{{producto.id}} {{producto.descripcion}} {{producto.precio}}</p>
+
+    <p *ngIf = "productos.length > 0">Hay Productos</p>
+    
 </div>
