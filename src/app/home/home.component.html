@@ -1,33 +1,8 @@
-<p>home works!</p>
-
-<div>
-    <h2>Print Title</h2>
-    {{title}}
-
-    <button [disabled]="modificado" (click)="cambiarTitle()">Cambiar Title</button>
-    <input type="text" [(ngModel)]="title">
-</div>
-<div>
-    <h2>Cambiar Nombre</h2>
-    <p>Hola {{nombrePersona}}</p>
-    <input type="text" [(ngModel)]="nombrePersona">
-
-</div>
-
-<div>
-    <h2>Adivinar</h2>
-    <button [disabled]="desactivar" (click)="adivinar()">Adivinar</button>
-    <input type="text" [(ngModel)]="numero">
-    <p>Te quedan {{intentos}} intentos</p>
-    <div [class]="class_mensaje">
-        <p>{{mensaje}}</p>
+<div *ngFor="let product of products">
+    <div>
+        {{product.name}}
     </div>
-    <div [ngClass]="{gano:numero ==5, perdio:numero!=5}">
-        {{mensaje}}
-    </div>
-
-    <p *ngFor= "let producto of productos">{{producto.id}} {{producto.descripcion}} {{producto.precio}}</p>
-
-    <p *ngIf = "productos.length > 0">Hay Productos</p>
-    
+    <button routerLink ="/product/{{product.id}}">Ver Detalle</button>
 </div>
+
+<p *ngIf="products.length > 0">Hay Productos</p>
