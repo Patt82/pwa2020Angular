@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../services/products.service';
+import { Product, ProductsPaginator} from "../interfaces/Product";
 
 @Component({
   selector: 'app-home',
@@ -7,13 +8,13 @@ import { ProductsService } from '../services/products.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  products = [];
+  products:Product[]= [];
 
   constructor(private productsService: ProductsService) {
     this.productsService.getAll()
-    .subscribe(data=>{
+    .subscribe((data: ProductsPaginator)=>{
     console.log("Data", data);
-    this.products = data["docs"];
+    this.products = data.docs;
     },
     err=>{
       console.log("Err", err); 

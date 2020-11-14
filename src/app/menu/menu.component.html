@@ -1,5 +1,9 @@
-<ul>
-    <li routerLink ="/">Home</li>
-    <li routerLink ="/login">Login</li>
-    <li routerLink ="/register">Register</li>
-</ul>
+<button mat-button routerLink ="/">Home</button>
+<button mat-button routerLink ="/login">Login</button>
+<button mat-button routerLink ="/register">Register</button>
+
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>

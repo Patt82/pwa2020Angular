@@ -1,23 +1,25 @@
-<form [formGroup] ="myForm" (ngSubmit)="login()">
-    <div>
-        <label for="">Email</label>
-        <input type="email" formControlName="email" [ngClass]="{error:myForm.get('email').errors && myForm.get('email').dirty, warning:myForm.get('email').hasError('minlength')}">
-    </div>
-    <div *ngIf ="myForm.get('email').errors && myForm.get('email').dirty">
+<form [formGroup]="myForm" (ngSubmit)="login()">
 
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email"
+            [ngClass]="{error:myForm.get('email').errors && myForm.get('email').dirty, warning:myForm.get('email').hasError('minlength')}">
+    </mat-form-field>
+
+    <div *ngIf="myForm.get('email').errors && myForm.get('email').dirty">
         <p *ngIf="myForm.get('email').hasError('required')">El campo es obligatorio</p>
         <p *ngIf="myForm.get('email').hasError('minlength')">Debe ingresar al menos 3 caracteres</p>
-        
     </div>
-    <div>
-        <label for="">Password</label>
-        <input type="password" formControlName="password">
-    </div>
-    <div *ngIf ="myForm.get('password').errors && myForm.get('password').dirty">
 
+    <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password">
+    </mat-form-field>
+
+    <div *ngIf="myForm.get('password').errors && myForm.get('password').dirty">
         <p *ngIf="myForm.get('password').hasError('required')">El campo es obligatorio</p>
-        
     </div>
-    <input type="submit" value="Ingresar" [disabled]="myForm.invalid">
+   
+    <button mat-raised-button color="primary" type="submit" [disabled]="myForm.invalid">Login</button>
 
 </form>
