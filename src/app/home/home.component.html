@@ -1,8 +1,5 @@
 <div *ngFor="let product of products">    
-    <div> {{product.name}} </div>
-    <div> {{product.description}} </div>
-    <div> {{product.price | currency}} </div>
-    <button routerLink ="/product/{{product.id}}">Ver Detalle</button>
+    <app-product [data] = "product" (reload)="getProducts()"> </app-product>
 </div>
 
 <p *ngIf="products.length>0">Hay Productos</p>

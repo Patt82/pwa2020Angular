@@ -11,6 +11,11 @@ export class HomeComponent implements OnInit {
   products:Product[]= [];
 
   constructor(private productsService: ProductsService) {
+    this.getProducts();
+  }
+
+  getProducts(){
+    console.log("getProducts")
     this.productsService.getAll()
     .subscribe((data: ProductsPaginator)=>{
     console.log("Data", data);
@@ -20,6 +25,9 @@ export class HomeComponent implements OnInit {
       console.log("Err", err); 
     });
   }
+
+
+
   ngOnInit(): void {
   }
 

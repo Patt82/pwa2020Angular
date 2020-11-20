@@ -2,8 +2,11 @@ export interface Product {
     _id: string;
     name: string;
     description: string;
-    sku: string
-    price: number
+    sku: string;
+    price: number;
+    category?: {
+        name: string;
+    }
 }
 
 export interface ProductsPaginator {

@@ -16,6 +16,14 @@ export class ProductsService {
       }
     })
 
-  }  
+  }
+  
+  getById(id:string){
+    return this.http.get(environment.endpointApi+"products/"+id, {
+      headers: {
+        "x-access-token": localStorage.getItem("token")
+      }
+    })
+  }
 
 }

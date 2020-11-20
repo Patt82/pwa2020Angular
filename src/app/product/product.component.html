@@ -1,0 +1,5 @@
+<div> {{data.name}} </div>
+<div> {{data.description}} </div>
+<div> {{data.price | currency}} </div>
+<button *ngIf="seeDetail" routerLink="/product/{{data._id}}">See detail</button>
+<button (click)="remove()">Remove</button>
